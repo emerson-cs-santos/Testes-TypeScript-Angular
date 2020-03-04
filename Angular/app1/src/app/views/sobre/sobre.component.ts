@@ -15,4 +15,8 @@ export class SobreComponent implements OnInit {
     this.sobre = 'Sobre essa aplicação';
   }
 
+  msg(): void{
+    alert('Teste');
+  }
+
 }
