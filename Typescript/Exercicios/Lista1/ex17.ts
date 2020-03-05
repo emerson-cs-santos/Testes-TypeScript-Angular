@@ -4,3 +4,11 @@ import * as rs from 'readline-sync';
 Pesquise como gerar números aleatórios em TypeScript. */
 
 console.log('Exercicio 17');
+
+const numeros: Number [] = new Array<number>(50);
+
+for( let controle=0; controle<=50; controle++ )
+{
+    numeros[controle] = 0;
+}
+
