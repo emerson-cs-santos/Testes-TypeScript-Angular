@@ -22,7 +22,7 @@ for (let atual of numeros)
     controle_exibir++;
 }
 
-// Poderia te ordenado com base alfanumerica ou numerica, mas não seria a order invertida do que foi digitada.
+// Poderia ter ordenado com base alfanumerica ou numerica, mas não seria a ordem invertida do que foi digitada.
 //numeros.sort((a,b) => (a > b ? -1 : 1));
 // Inclusive dessa forma, mesmo digitando letras, é posssivel inverter a ordem
 numeros.reverse().map(item => {   return item; } );

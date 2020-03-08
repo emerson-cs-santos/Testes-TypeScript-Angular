@@ -16,7 +16,7 @@ for (var _i = 0, numeros_1 = numeros; _i < numeros_1.length; _i++) {
     console.log('Numero ' + controle_exibir + ' = ' + atual);
     controle_exibir++;
 }
-// Poderia te ordenado com base alfanumerica ou numerica, mas não seria a order invertida do que foi digitada.
+// Poderia ter ordenado com base alfanumerica ou numerica, mas não seria a ordem invertida do que foi digitada.
 //numeros.sort((a,b) => (a > b ? -1 : 1));
 // Inclusive dessa forma, mesmo digitando letras, é posssivel inverter a ordem
 numeros.reverse().map(function (item) { return item; });

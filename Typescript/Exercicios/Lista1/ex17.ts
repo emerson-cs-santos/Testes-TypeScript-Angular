@@ -12,7 +12,7 @@ let conntrole_exibir = 1;
 for( let controle=0; controle<=49; controle++ )
 {
     // Math.random() * (valor_Maximo - Valor_Minimo) + Valor_Minimo;
-    numeros[controle] = Math.random() * (100 - 1) + 1;
+    numeros[controle] = Math.round(Math.random() * (100 - 1) + 1);
     soma =  soma + numeros[controle];
 }
 
