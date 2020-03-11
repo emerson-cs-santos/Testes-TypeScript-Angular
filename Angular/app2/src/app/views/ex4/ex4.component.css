@@ -1,0 +1,13 @@
+.imagemTamanho{
+  height: 200px;
+  width: 200px;
+}
+
+.imagemBorda{
+  border: red;
+  border-style: dashed;
+}
+
+.imagemMargin{
+  margin-top: 25px;
+}
