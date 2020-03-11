@@ -4,11 +4,17 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Exemplo01Component } from './views/exemplo01/exemplo01.component';
+import { Ex1Component } from './views/ex1/ex1.component';
+import { Ex2Component } from './views/ex2/ex2.component';
+import { Ex3Component } from './views/ex3/ex3.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    Exemplo01Component
+    Exemplo01Component,
+    Ex1Component,
+    Ex2Component,
+    Ex3Component
   ],
   imports: [
     BrowserModule,
