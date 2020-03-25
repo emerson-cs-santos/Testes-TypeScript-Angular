@@ -1,0 +1,14 @@
+div {
+  width: 200px;
+  height: 200px;
+  font-size: 36px;
+  border: 2px solid black;
+}
+
+.ver{
+display: block;
+}
+
+.esconder{
+  display: none;
+  }

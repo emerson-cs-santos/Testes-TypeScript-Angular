@@ -9,7 +9,6 @@ export class Ex3Component implements OnInit {
 
   classepetroleo = 'petroleo';
 
-
   constructor() { }
 
   ngOnInit(): void {
