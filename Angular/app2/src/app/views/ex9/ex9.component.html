@@ -1,0 +1,10 @@
+<h2>Ex9</h2>
+<input type="text" class='caixa' [(ngModel)]="nome" (ngModelChange)="trocarImagem()"  placeholder="Digite o nome da raça do cachorro...">
+
+<div class='mt div_tam'>
+  <figure>
+    <img class='imagem' [src]="imagem" alt="Imagem de uma raça de cachorro">
+    <figcaption class='centertext'>{{nome_exibir}}</figcaption>
+  </figure>
+</div>
+
