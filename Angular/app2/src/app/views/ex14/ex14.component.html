@@ -1,0 +1,10 @@
+<h2>Ex14</h2>
+<div>
+  <select [(ngModel)]="tipo">
+    <option value="whats">Whatsapp</option>
+    <option value="email">E-mail</option>
+  </select>
+</div>
+
+<input *ngIf = "tipo === 'whats' " type="text" placeholder="11-96585-2236" >
+<input *ngIf = "tipo === 'email' " type="email" placeholder="fulano@ig.com.br">

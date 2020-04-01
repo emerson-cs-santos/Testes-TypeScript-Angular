@@ -16,6 +16,9 @@ import { Ex8Component } from './views/ex8/ex8.component';
 import { Ex9Component } from './views/ex9/ex9.component';
 import { Ex10Component } from './views/ex10/ex10.component';
 import { Ex11Component } from './views/ex11/ex11.component';
+import { Ex12Component } from './views/ex12/ex12.component';
+import { Ex13Component } from './views/ex13/ex13.component';
+import { Ex14Component } from './views/ex14/ex14.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import { Ex11Component } from './views/ex11/ex11.component';
     Ex8Component,
     Ex9Component,
     Ex10Component,
-    Ex11Component
+    Ex11Component,
+    Ex12Component,
+    Ex13Component,
+    Ex14Component
   ],
   imports: [
     BrowserModule,
