@@ -1,0 +1,13 @@
+<h2>Ex15</h2>
+<input type="number" [(ngModel)]="valor1">
+<input type="number" [(ngModel)]="valor2">
+
+<div *ngIf="valor1 && valor2">
+  <input type="button" value="+" (click) = "operacao('soma')">
+  <input type="button" value="-" (click) = "operacao('sub')">
+  <input type="button" value="*" (click) = "operacao('mult')">
+  <input type="button" value="/" (click) = "operacao('div')">
+  <p>Resultado: {{resultado}}</p>
+</div>
+
+
