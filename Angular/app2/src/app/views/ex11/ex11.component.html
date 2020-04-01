@@ -1,0 +1,25 @@
+<h2>Ex11</h2>
+
+<div>
+  <input type="number" [(ngModel)]='valor1'>
+</div>
+
+<div>
+  <input type="number" [(ngModel)]='valor2'>
+</div>
+
+<input type="radio" name="soma" (click) = "operacao('soma')">
+<label for="soma">Soma</label>
+
+<input type="radio" name="sub" (click) = "operacao('sub')">
+<label for="sub">Subtração</label>
+
+<input type="radio" name="mult" (click) = "operacao('mult')">
+<label for="mult">Multiplicação</label>
+
+<input type="radio" name="div" (click) = "operacao('div')">
+<label for="div">Divisão</label>
+
+<div>
+  <input type="number" value={{resultado}}>
+</div>
