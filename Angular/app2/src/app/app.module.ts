@@ -21,6 +21,7 @@ import { Ex13Component } from './views/ex13/ex13.component';
 import { Ex14Component } from './views/ex14/ex14.component';
 import { Ex15Component } from './views/ex15/ex15.component';
 import { Ex16Component } from './views/ex16/ex16.component';
+import { Ex17Component } from './views/ex17/ex17.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { Ex16Component } from './views/ex16/ex16.component';
     Ex13Component,
     Ex14Component,
     Ex15Component,
-    Ex16Component
+    Ex16Component,
+    Ex17Component
   ],
   imports: [
     BrowserModule,

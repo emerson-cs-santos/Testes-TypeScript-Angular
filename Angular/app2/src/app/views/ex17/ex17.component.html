@@ -1,0 +1,5 @@
+<h2>Ex17</h2>
+<ul>
+  <li *ngFor="let pais of arrayPaises; let i = index;" (click) = "mostrarCapital(pais.substr( pais.indexOf(':')+1,pais.length))" >{{ pais.substr( 0, pais.indexOf(':')) }}</li>
+</ul>
+
