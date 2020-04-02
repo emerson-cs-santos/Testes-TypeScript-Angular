@@ -1,0 +1,6 @@
+<h2>Ex19</h2>
+<input type="text" [(ngModel)]="nome">
+<input type="button" value="Adicionar" (click) = 'addLista()'>
+<ol>
+  <li *ngFor="let nomeAtual of arrayNomes; let i = index;">{{nomeAtual}}</li>
+</ol>
