@@ -1,0 +1,5 @@
+<h2>Ex16</h2>
+<div *ngFor="let imagem of arrayImagens; let i = index;">
+  <img class="imagem mt" src="{{imagem}}" alt="imagem" (click) = "exibirNome(arrayImagens[i])">
+</div>
+
