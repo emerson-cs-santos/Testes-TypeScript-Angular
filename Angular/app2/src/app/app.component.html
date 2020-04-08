@@ -22,6 +22,7 @@
 <input type="button" value="Ex19" (click)="exibirComponente('ex19')">
 <input type="button" value="Ex20" (click)="exibirComponente('ex20')">
 
+<!-- Usando ngIF -->
 <app-exemplo01 *ngIf="componenteAtual === 'exemplo'"></app-exemplo01>
 <app-ex1 *ngIf="componenteAtual === 'ex1'"></app-ex1>
 <app-ex2 *ngIf="componenteAtual === 'ex2'"></app-ex2>
@@ -36,9 +37,16 @@
 <app-ex11 *ngIf="componenteAtual === 'ex11'"></app-ex11>
 <app-ex12 *ngIf="componenteAtual === 'ex12'"></app-ex12>
 <app-ex13 *ngIf="componenteAtual === 'ex13'"></app-ex13>
-<app-ex15 *ngIf="componenteAtual === 'ex15'"></app-ex15>
-<app-ex16 *ngIf="componenteAtual === 'ex16'"></app-ex16>
-<app-ex17 *ngIf="componenteAtual === 'ex17'"></app-ex17>
-<app-ex18 *ngIf="componenteAtual === 'ex18'"></app-ex18>
-<app-ex19 *ngIf="componenteAtual === 'ex19'"></app-ex19>
-<app-ex20 *ngIf="componenteAtual === 'ex20'"></app-ex20>
+
+<!-- Usando ngSwitch -->
+<div [ngSwitch] ="componenteAtual">
+  <app-ex14 *ngSwitchCase = " 'ex14' "></app-ex14>
+  <app-ex15 *ngSwitchCase = " 'ex15' "></app-ex15>
+  <app-ex16 *ngSwitchCase = " 'ex16' "></app-ex16>
+  <app-ex17 *ngSwitchCase = " 'ex17' "></app-ex17>
+  <app-ex18 *ngSwitchCase = " 'ex18' "></app-ex18>
+  <app-ex19 *ngSwitchCase = " 'ex19' "></app-ex19>
+  <app-ex20 *ngSwitchCase = " 'ex20' "></app-ex20>
+</div>
+
+<app-sobre></app-sobre>
