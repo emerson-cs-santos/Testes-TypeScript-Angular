@@ -13,8 +13,7 @@ export class MovieComponent implements OnInit {
   selMovie: Movie = null;
   isAddingNewMovie = false;
 
-  // Passando como parametro o serviço, ele fica disponivel para esse componente, se chama de injection de um serviço
-  constructor(private movieService: MovieService)
+  constructor()
   {
     // Criando um novo filme
     const alien = new Movie();
@@ -47,7 +46,6 @@ export class MovieComponent implements OnInit {
   addMovie(): void
   {
 
-    // Fazendo no proprio componente
     if( this.selMovie.name === '' || isNaN(this.selMovie.rating)  )
     {
       alert('Campo filme e nota são obrigatórios!');
@@ -58,28 +56,11 @@ export class MovieComponent implements OnInit {
       {
         if (this.isAddingNewMovie)
         {
-          // antes de usar o serviço
           this.movies.push(this.selMovie);
-
-          // usando serviço
-          //this.movieService.insert(this.selMovie);
-          // Atualizando lista local do componente
-          //this.movies = this.movieService.list();
-
-        }
-        else // Editando
-        {
-          // usando serviço
-         // this.movies = this.movieService.list();
-        //  this.selMovie = null;
         }
         this.selMovie = null;
       }
     }
-
-
-    // Usando serviço
-   // this.movieService.insert(this.selMovie);
 
   }
 
@@ -93,9 +74,6 @@ export class MovieComponent implements OnInit {
     if (confirm('Apagar item?'))
     {
       this.movies.splice(index,1);
-      // Usando serviço
-      //this.movieService.remove(index);
-      // No html, no botão REMOVER precisa passar o campo de id do objeto ao inves de index
     }
   }
 
