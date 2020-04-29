@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Cards</title>
+        <meta charset="utf-8">
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <div class='container'>
+            <header class='row'>
+                <div class="col-12">
+                  <h1 class="text-center mt-5">Cards</h1>
+                </div>
+            </header>
+
+            <main>
+                <section class='row'>
+
+                    <div class='text-center col-12'>
+                      <h2>My Cards</h2>
+                    </div>
+
+                    <!-- <div class="d-flex justify-content-center col-12 mt-3">
+                      <ul class="list-group">
+                        <li *ngFor="let card of cards" (click) = "selectCard(card);" class="list-group-item">
+                          Carta: {{card.name}} - Tipo: {{card.type}}
+                          <input type="button" value="X" class="btn btn-danger" (click) = "remove(card.id)">
+                        </li>
+                      </ul>
+                    </div> -->
+
+                    <div class="col-12 form-group mt-3">
+                        <span>Buscar pelo Nome</span>
+                        <input type="text" class="form-control" [(ngModel)]="filtroNome" (ngModelChange)="nameFiltrar()"  placeholder="Digite o nome da carta">
+                    </div>
+
+                    <div class="table-responsive d-flex justify-content-center col-12 mt-3">
+                      <table class="table table-striped bg-light text-center table-bordered">
+                          <thead class="text-dark">
+                              <th>Card</th>
+                              <th>Status</th>
+                              <th>Type</th>
+                              <th>Property</th>
+                              <th>Passcode</th>
+                          </thead>
+                          <tbody>
+                              <tr *ngFor="let card of cards" class="MousePoiter" (click) = "selectCard(card);">
+                                <td>{{card.name}}</td>
+                                <td>{{card.status}}</td>
+                                <td>{{card.type}}</td>
+                                <td>{{card.property}}</td>
+                                <td>{{card.passcode}}</td>
+                                <td><a (click) = "remove(card.id)" class="btn btn-danger">Excluir</a></td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+
+                    <div *ngIf="selCard" class="form-group col-12 mt-3">
+                        <span>Name</span>
+                        <input type="text" class="form-control" [(ngModel)] = "selCard.name">
+
+                        <div class="mt-2">
+                          <span>Status</span>
+                          <input type="text" class="form-control" [(ngModel)] = "selCard.status">
+                        </div>
+
+                        <div class="mt-2">
+                          <span>Type</span>
+                          <input type="text" class="form-control" [(ngModel)] = "selCard.type">
+                        </div>
+
+                        <div class="mt-2">
+                          <span>Property</span>
+                          <input type="text" class="form-control" [(ngModel)] = "selCard.property">
+                        </div>
+
+                        <div class="mt-2">
+                          <span>Passcode</span>
+                          <input type="text" class="form-control" [(ngModel)] = "selCard.passcode">
+                        </div>
+
+                        <div class="mt-3">
+                          <input type="button" class="btn btn-primary" value="Save" (click) = "save();">
+                          <input type="button" class="btn btn-warning ml-3" value="cancel" (click) = "cancel();">
+                        </div>
+
+                    </div>
+
+                    <div class="form-group col-12 d-flex justify-content-center mt-4">
+                      <input type="button" value="New" class="btn btn-success" (click)="new();">
+                    </div>
+                </section>
+            </main>
+
+            <footer class="container">
+              <div class='row col-12'>
+                  <p>Jogos - Footer</p>
+              </div>
+          </footer>
+        </div>
+    </body>
+</html>

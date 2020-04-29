@@ -1,0 +1,9 @@
+.MousePoiter
+{
+    cursor: pointer;
+}
+
+tr:hover
+{
+  background-color: burlywood!important;
+}

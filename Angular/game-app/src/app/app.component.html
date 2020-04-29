@@ -1,0 +1,5 @@
+<input type="button" value="Aula" (click)="exibirComponente('game')">
+<input type="button" value="Exercicio" (click)="exibirComponente('cards')">
+
+<app-game *ngIf="componenteAtual === 'game'"></app-game>
+<app-cards *ngIf="componenteAtual === 'cards'"></app-cards>
