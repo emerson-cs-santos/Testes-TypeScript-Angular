@@ -49,6 +49,10 @@ export class CardsComponent implements OnInit
 
   save(): void
   {
+
+    // Desfaz filtro para enviar todas linhas do vetor, incluindo a nova ou alterada, senão por conta do filtro, iria para salvar faltando elementos e assim, se perderia
+    this.refreshCards();
+
     if (this.editMode)
     {
       this.cardService.update(this.selCard);
@@ -58,37 +62,35 @@ export class CardsComponent implements OnInit
       this.cardService.insert(this.selCard);
     }
     this.selCard=null;
+
+    // Recarregar lista e aplicar filtro
     this.refreshCards();
+    this.nameFiltrar();
   }
 
   remove(id: number): void
   {
     this.cardService.remove(id);
     this.cancel();
+
+    // Após apagar, recarregar lista e aplicar filtro
+    this.refreshCards();
+    this.nameFiltrar();
   }
 
   nameFiltrar(): void
   {
+    this.refreshCards();
     if ( this.filtroNome.length > 0 )
     {
-     // this.cardsFiltro = this.cards;
-    //  this.cards = this.cardsFiltro.find(x => x.name === this.filtroNome);
+      let filtro = this.cardsFiltro.filter( carta => { return carta.name.toLocaleLowerCase().includes(this.filtroNome); } )
+
+      this.cards = filtro;
     }
     else
     {
-      //this.cards = this.cardsFiltro;
+      this.refreshCards();
     }
   }
 
-  // search(nameKey): Array<Card>
-  // {
-  //   for (var i=0; i < this.cards.length; i++)
-  //   {
-  //       if (this.cards[i].name === nameKey)
-  //       {
-  //         //this.cardsFiltro =
-
-  //         //return this.cards[];
-  //       }
-  //   }
 }
