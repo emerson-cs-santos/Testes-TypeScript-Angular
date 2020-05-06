@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Card } from 'src/app/model/cards';
 import { CardsService } from 'src/app/services/cards.service';
 
+import { CardsTypesService } from 'src/app/services/cards-types.service';
+import { CardTypes } from 'src/app/model/cardTypes';
+
 @Component({
   selector: 'app-cards',
   templateUrl: './cards.component.html',
@@ -16,11 +19,17 @@ export class CardsComponent implements OnInit
   filtroNome = '';
   cardsFiltro = new Array<Card>();
 
-  constructor(private cardService: CardsService) { }
+  cardsTypesLista = new Array<CardTypes>();
+
+  filtroType = '';
+
+  constructor( private cardService: CardsService, private CardTypesService: CardsTypesService ) { }
 
   ngOnInit(): void
   {
     this.refreshCards();
+
+    this.cardsTypesLista   = this.CardTypesService.list();
   }
 
   refreshCards(): void
@@ -83,7 +92,24 @@ export class CardsComponent implements OnInit
     this.refreshCards();
     if ( this.filtroNome.length > 0 )
     {
+      this.filtroType = '';
       let filtro = this.cardsFiltro.filter( carta => { return carta.name.toLocaleLowerCase().includes(this.filtroNome); } )
+
+      this.cards = filtro;
+    }
+    else
+    {
+      this.refreshCards();
+    }
+  }
+
+  typeFiltrar(): void
+  {
+    this.refreshCards();
+    if ( this.filtroType.length > 0 )
+    {
+      this.filtroNome = '';
+      let filtro = this.cardsFiltro.filter( carta => { return carta.type.toLocaleLowerCase().includes(this.filtroType); } )
 
       this.cards = filtro;
     }

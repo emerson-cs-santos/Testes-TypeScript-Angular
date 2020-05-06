@@ -1,5 +1,22 @@
 <input type="button" value="Aula" (click)="exibirComponente('game')">
-<input type="button" value="Exercicio" (click)="exibirComponente('cards')">
+<input type="button" value="Cartas" (click)="exibirComponente('cards')">
+<input type="button" value="Tipos de cartas" (click)="exibirComponente('types')">
 
 <app-game *ngIf="componenteAtual === 'game'"></app-game>
 <app-cards *ngIf="componenteAtual === 'cards'"></app-cards>
+<app-cards-types *ngIf="componenteAtual === 'types'"></app-cards-types>
+
+<hr>
+
+<ul>
+  <li>
+    <a routerLink="/GameComponent" routerLinkActive="true">Games</a>
+  </li>
+  <li>
+    <a routerLink="/GenreComponent" routerLinkActive="true">gêneros</a>
+  </li>
+</ul>
+
+<hr>
+
+<router-outlet></router-outlet>

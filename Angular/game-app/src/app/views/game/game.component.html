@@ -45,9 +45,16 @@
                           <input type="text" class="form-control" [(ngModel)] = "selGame.status">
                         </div>
 
-                        <div class="mt-2">
+                        <!-- <div class="mt-2">
                           <span>Genero</span>
                           <input type="text" class="form-control" [(ngModel)] = "selGame.genre">
+                        </div> -->
+
+                        <div class="mt-2">
+                          <span>Genero</span>
+                            <select class="form-control" [(ngModel)] = "selGame.genre">
+                              <option ([ngModel])="GameGenre" *ngFor="let GameGenre of GamesGenreLista"> {{GameGenre.name}}</option>
+                            </select>
                         </div>
 
                         <div class="mt-2">

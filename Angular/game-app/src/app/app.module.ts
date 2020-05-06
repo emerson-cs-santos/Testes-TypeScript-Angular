@@ -7,12 +7,16 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { GameComponent } from './views/game/game.component';
 import { CardsComponent } from './views/cards/cards.component';
+import { CardsTypesComponent } from './views/cards-types/cards-types.component';
+import { GenreComponent } from './views/genre/genre.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GameComponent,
-    CardsComponent
+    CardsComponent,
+    CardsTypesComponent,
+    GenreComponent
   ],
   imports: [
     BrowserModule,

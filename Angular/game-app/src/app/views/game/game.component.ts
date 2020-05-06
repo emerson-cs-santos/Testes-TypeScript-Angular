@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { GameService } from 'src/app/services/game.service';
 import { Game } from 'src/app/model/games';
+import { GameGenre } from 'src/app/model/genre';
+import { GenreService } from 'src/app/services/genre.service';
 
 @Component({
   selector: 'app-game',
@@ -14,12 +16,15 @@ export class GameComponent implements OnInit
   selGame: Game = null;
   editMode = false;
 
+  GamesGenreLista = new Array<GameGenre>();
+
   // Fazendo injection do serviço
-  constructor(private gameService: GameService) { }
+  constructor(private gameService: GameService, private GenresService: GenreService) { }
 
   ngOnInit(): void
   {
     this.refreshGames();
+    this.GamesGenreLista   = this.GenresService.list();
   }
 
   refreshGames(): void
