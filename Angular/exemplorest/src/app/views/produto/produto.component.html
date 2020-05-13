@@ -1,0 +1,27 @@
+<h2>Produtos</h2>
+<input type="button" (click)="listarProdutos()" value="Listar Produtos">
+
+<div class="mt" *ngIf="produtos">
+  <table>
+    <tr>
+      <th>Nome</th>
+      <th>Estoque</th>
+      <th>Descrição</th>
+      <th>Categoria</th>
+      <th>Ativo</th>
+      <th>Preço</th>
+      <th>Desconto</th>
+    </tr>
+
+    <tr *ngFor="let prod of produtos">
+      <!-- <td>{{prod.idProduto}}</td> -->
+      <td>{{prod.nomeProduto}}</td>
+      <td>{{prod.qtdMinEstoque}}</td>
+      <td>{{prod.descProduto}}</td>
+      <td>{{prod.idCategoria}}</td>
+      <td>{{prod.tivoProduto}}</td>
+      <td>{{prod.precProduto}}</td>
+      <td>{{prod.descontoPromocao}}</td>
+    </tr>
+  </table>
+</div>
