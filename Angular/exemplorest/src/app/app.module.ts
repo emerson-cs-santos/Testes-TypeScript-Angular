@@ -7,12 +7,14 @@ import { CepComponent } from './views/cep/cep.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ProdutoComponent } from './views/produto/produto.component';
+import { TimezoneComponent } from './views/timezone/timezone.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CepComponent,
-    ProdutoComponent
+    ProdutoComponent,
+    TimezoneComponent
   ],
   imports: [
     BrowserModule,

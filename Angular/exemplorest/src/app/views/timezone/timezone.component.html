@@ -1,0 +1,57 @@
+<div class='container mt-5'>
+    <header class='row'>
+        <div class="col-12">
+          <h1 class="text-center mt-5">Exercicio Aula 11</h1>
+        </div>
+    </header>
+
+    <main>
+        <section class='row'>
+
+            <div class='text-center col-12'>
+              <h2>TimeZone</h2>
+            </div>
+
+            <div class="col-12 form-group mt-3">
+                <input type="text" class="form-control" placeholder='Exemplo: "America/Sao_Paulo"' [(ngModel)]="timezoneBuscar">
+
+                <input type="button" class="btn btn-primary form-control mt-3" (click)="carregarTimezone()" value="Buscar Fuso Horário">
+            </div>
+
+            <div class="col-12 text-center" *ngIf="timezone">
+              <p>{{timezoneBuscar}}:</p>
+
+              <div class="table-responsive col-12 mt-3">
+                <table class="table table-striped bg-light text-center table-bordered">
+                    <thead class="text-dark">
+                      <tr>
+                        <th>UTC</th>
+                        <th>Data e Hora</th>
+                        <th>Dia da Semana</th>
+                        <th>Semana no ano</th>
+                        <th>Dia no Ano</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                          <td>{{timezone.abbreviation}}</td>
+                          <td>{{timezone.datetime | date:'medium'  }}</td>
+                          <td>{{timezone.day_of_week}}</td>
+                          <td>{{timezone.week_number}}</td>
+                          <td>{{timezone.day_of_year}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+              </div>
+
+            </div>
+
+        </section>
+    </main>
+
+  <footer class="container text-center">
+    <div class='col-12'>
+        <p>Busca de Time zone - Footer</p>
+    </div>
+  </footer>
+</div>
