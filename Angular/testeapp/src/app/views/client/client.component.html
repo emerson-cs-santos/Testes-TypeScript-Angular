@@ -1,6 +1,68 @@
 <mat-card class="page-card">
   <h2>Gerenciamento de Clientes</h2>
 
-  <button mat-raised-button color="primary">Novo</button>
-  <button class="botaoAtualizar" mat-raised-button color="primary">Atualizar</button>
+  <button class="botaoAdd" mat-fab color="primary" (click) = "newClient()">
+    <mat-icon>add</mat-icon>
+  </button>
+
+  <button class="botaoAtualizar" mat-button color="primary" (click) = "listar()">
+    <mat-icon>refresh</mat-icon>
+  </button>
+
+  <div>
+    <mat-table [dataSource]="clientes" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="nome">
+        <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
+        <mat-cell *matCellDef="let cliente"> {{cliente.nome}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="cpf">
+        <mat-header-cell *matHeaderCellDef> CPF </mat-header-cell>
+        <mat-cell *matCellDef="let cliente"> {{cliente.cpf}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="acoes">
+        <mat-header-cell *matHeaderCellDef> Ações </mat-header-cell>
+          <mat-cell *matCellDef="let cliente">
+
+            <button mat-button color="primary" (click) = "remover(cliente._id)" >
+              <mat-icon>delete</mat-icon>
+            </button>
+
+            <button mat-button color="primary" (click) = "selecionar(cliente)" >
+              <mat-icon>edit</mat-icon>
+            </button>
+
+          </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="colunas"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: colunas;"></mat-row>
+    </mat-table>
+  </div>
+
+  <div *ngIf="clienteSelecionado" class="mt">
+    <h2>Inserir / Editar</h2>
+
+    <mat-form-field class="formItem">
+      <mat-label>Nome</mat-label>
+      <input matInput placeholder="João" [(ngModel)] = "clienteSelecionado.nome">
+    </mat-form-field>
+
+    <mat-form-field class="formItem">
+      <mat-label>CPF</mat-label>
+      <input matInput placeholder="38596922590" [(ngModel)] = "clienteSelecionado.cpf">
+    </mat-form-field>
+
+    <button class="mt btnAcao" mat-raised-button color="primary" (click) = "cancelar()" >
+      Cancelar
+    </button>
+
+    <button class="btnAcao" mat-raised-button color="accent" (click) = "salvar()" >
+      Salvar
+    </button>
+
+  </div>
+
 </mat-card>

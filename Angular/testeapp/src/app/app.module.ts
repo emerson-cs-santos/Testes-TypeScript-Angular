@@ -17,6 +17,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { ClientComponent } from './views/client/client.component';
 import { AboutComponent } from './views/about/about.component';
 import { MatCardModule } from '@angular/material/card';
+import { MatTableModule } from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import { MatCardModule } from '@angular/material/card';
     MatListModule,
     MatIconModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatTableModule,
+    MatInputModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
