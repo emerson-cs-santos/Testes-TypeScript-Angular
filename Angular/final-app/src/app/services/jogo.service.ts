@@ -13,12 +13,12 @@ export class JogoService
 
   listar(): Observable<Jogo[]>
   {
-    return this.http.get<Jogo[]>('https://crudcrud.com/api/18e95a60bbbf462da6a1be44ac83832a/jogo');
+    return this.http.get<Jogo[]>('https://crudcrud.com/api/e31a2dda4d9f47f38a9a7a2a6ca2abda/jogo');
   }
 
   inserir(jogo: Jogo): Observable<Jogo>
   {
-    return this.http.post<Jogo>('https://crudcrud.com/api/18e95a60bbbf462da6a1be44ac83832a/jogo', jogo);
+    return this.http.post<Jogo>('https://crudcrud.com/api/e31a2dda4d9f47f38a9a7a2a6ca2abda/jogo', jogo);
   }
 
   atualizar(jogo: Jogo): Observable<any>
@@ -26,11 +26,11 @@ export class JogoService
     const id = jogo._id;
     delete jogo._id;
 
-    return this.http.put<Jogo>('https://crudcrud.com/api/18e95a60bbbf462da6a1be44ac83832a/jogo/' + id , jogo);
+    return this.http.put<Jogo>('https://crudcrud.com/api/e31a2dda4d9f47f38a9a7a2a6ca2abda/jogo/' + id , jogo);
   }
 
   remover(id: string): Observable<any>
   {
-    return this.http.delete('https://crudcrud.com/api/18e95a60bbbf462da6a1be44ac83832a/jogo/' + id);
+    return this.http.delete('https://crudcrud.com/api/e31a2dda4d9f47f38a9a7a2a6ca2abda/jogo/' + id);
   }
 }

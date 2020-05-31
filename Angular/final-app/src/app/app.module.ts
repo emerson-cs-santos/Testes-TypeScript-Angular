@@ -22,7 +22,11 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 
 import { ReactiveFormsModule } from '@angular/forms';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSortModule } from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -46,7 +50,11 @@ import {MatSelectModule} from '@angular/material/select';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatTooltipModule,
+    MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

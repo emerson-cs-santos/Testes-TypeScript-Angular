@@ -22,20 +22,44 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class GeneroComponent implements OnInit
 {
   generos: Array<Genero>;
-  colunas = ['nome', 'acoes'];
+  colunas = ['nome', 'icone', 'acoes'];
   generoSelecionado: Genero;
   inserindo = false;
 
+  corItens = new Array<string>();
+
   matcher = new MyErrorStateMatcher();
-  FieldValidator: FormControl =  new FormControl('', [Validators.required]);
+  generoValidator: FormControl =  new FormControl('', [Validators.required]);
+  corValidator: FormControl =  new FormControl('', [Validators.required]);
   @ViewChild("nome") inputEl: ElementRef;
+
+  isChecked = true;
 
   constructor( private generoService: GeneroService ) { }
 
   ngOnInit(): void
   {
-    //this.listar();
+    const carregar = localStorage.getItem('carregar');
 
+    if( carregar === 'sim' )
+    {
+      this.isChecked = true;
+    }
+    else
+    {
+      this.isChecked = false;
+    }
+
+    if ( this.isChecked )
+    {
+      this.listar();
+    }
+
+    this.corItens.push('games');
+    this.corItens.push('videogame_asset');
+    this.corItens.push('sports_esports');
+    this.corItens.push('sports_soccer');
+    this.corItens.push('casino');
   }
 
   listar(): void
@@ -70,7 +94,7 @@ export class GeneroComponent implements OnInit
 
   salvar(): void
   {
-    if ( !this.generoSelecionado.nome )
+    if ( !this.generoSelecionado.nome || !this.generoSelecionado.icone )
     {
       alert('Preencha os campos obrigatórios!');
     }
@@ -100,6 +124,22 @@ export class GeneroComponent implements OnInit
     this.generoSelecionado = new Genero();
 
     setTimeout( () => { this.inputEl.nativeElement.focus();  }, 100 );
+  }
+
+  saveOption(): void
+  {
+    let carregar = localStorage.getItem('carregar');
+
+    if ( !this.isChecked )
+    {
+      carregar = 'sim';
+    }
+    else
+    {
+      carregar = 'nao';
+    }
+
+    localStorage.setItem('carregar', carregar );
   }
 
 }

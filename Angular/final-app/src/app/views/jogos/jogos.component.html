@@ -1,25 +1,27 @@
 <mat-card class="page-card">
   <h2>Jogos</h2>
 
-  <button class="botaoAdd" mat-fab color="primary" (click) = "new()">
+  <button class="botaoAdd" mat-fab color="primary" (click) = "new()" matTooltip="Criar novo jogo">
     <mat-icon>add</mat-icon>
   </button>
 
-  <button class="botaoAtualizar" mat-button color="primary" (click) = "listar()">
+  <button class="botaoAtualizar" mat-button color="primary" (click) = "listar()" matTooltip="Atualizar dados da tabela">
     <mat-icon>refresh</mat-icon>
   </button>
 
+  <mat-slide-toggle class="loadInit" [(ngModel)]="isChecked" (click) = "saveOption()" matTooltip="Definir se ao abrir a página será carregado automaticamente os dados da tabela.">Carregar dados ao abrir</mat-slide-toggle>
+
   <div>
-    <mat-table [dataSource]="jogos" class="mat-elevation-z8">
+    <mat-table [dataSource]="jogos" matSort class="mat-elevation-z8">
 
       <ng-container matColumnDef="nome">
-        <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Nome </mat-header-cell>
         <mat-cell *matCellDef="let jogo"> {{jogo.nome}} </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="genero">
         <mat-header-cell *matHeaderCellDef> Genero </mat-header-cell>
-        <mat-cell *matCellDef="let jogo"> {{jogo.genero}} </mat-cell>
+        <mat-cell *matCellDef="let jogo"> {{jogo.genero}} <mat-icon color="accent">{{retornarIcone(jogo.genero)}}</mat-icon> </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="avaliacao">
@@ -36,11 +38,11 @@
         <mat-header-cell *matHeaderCellDef> Ações </mat-header-cell>
           <mat-cell *matCellDef="let jogo">
 
-            <button mat-button color="primary" (click) = "remover(jogo._id)" >
+            <button mat-button color="primary" (click) = "remover(jogo._id)" matTooltip="Apagar">
               <mat-icon>delete</mat-icon>
             </button>
 
-            <button mat-button color="primary" (click) = "selecionar(jogo)" >
+            <button mat-button color="primary" (click) = "selecionar(jogo)" matTooltip="Editar">
               <mat-icon>edit</mat-icon>
             </button>
 
@@ -78,10 +80,8 @@
 
     <mat-form-field class="formItem mt1">
       <mat-label>Avaliação*</mat-label>
-      <mat-select [(value)] = "avaliacaoSelecionado" [formControl]="avaliacaoValidator" [errorStateMatcher]="matcher">
-        <mat-option value="Ruim">Ruim</mat-option>
-        <mat-option value="Ok">Ok</mat-option>
-        <mat-option value="Legal">Legal</mat-option>
+      <mat-select [(ngModel)] = "jogoSelecionado.avaliacao" [formControl]="avaliacaoValidator" [errorStateMatcher]="matcher">
+        <mat-option [value]="avaliacaoItem" *ngFor="let avaliacaoItem of avaliacaoItens"> {{avaliacaoItem}}</mat-option>
       </mat-select>
 
       <mat-error *ngIf="avaliacaoValidator.invalid">
@@ -91,10 +91,8 @@
 
     <mat-form-field class="formItem mt1">
       <mat-label>Status*</mat-label>
-      <mat-select [(value)] = "statusSelecionado" [formControl]="statusValidator" [errorStateMatcher]="matcher">
-        <mat-option value="Quero">Quero</mat-option>
-        <mat-option value="Tenho">Tenho</mat-option>
-        <mat-option value="Zerado">Zerado</mat-option>
+      <mat-select [(ngModel)] = "jogoSelecionado.status" [formControl]="statusValidator" [errorStateMatcher]="matcher">
+        <mat-option [value]="statusItem" *ngFor="let statusItem of statusItens"> {{statusItem}}</mat-option>
       </mat-select>
 
       <mat-error *ngIf="statusValidator.invalid">

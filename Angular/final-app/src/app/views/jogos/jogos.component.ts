@@ -31,24 +31,51 @@ export class JogosComponent implements OnInit
 
   generosLista = new Array<Genero>();
 
+  avaliacaoItens = new Array<string>();
+  statusItens = new Array<string>();
+
   matcher = new MyErrorStateMatcher();
   nomeValidator: FormControl =  new FormControl('', [Validators.required]);
   generoValidator: FormControl =  new FormControl('', [Validators.required]);
   avaliacaoValidator: FormControl =  new FormControl('', [Validators.required]);
   statusValidator: FormControl =  new FormControl('', [Validators.required]);
+
   @ViewChild("nome") inputEl: ElementRef;
 
-  avaliacaoSelecionado = 'ok';
-  statusSelecionado = 'quero';
+  isChecked = true;
 
   constructor( private jogoService: JogoService, private generoService: GeneroService ) { }
 
   ngOnInit(): void
   {
-    // this.listar();
+    const carregar = localStorage.getItem('carregarJogos');
+
+    if( carregar === 'sim' )
+    {
+      this.isChecked = true;
+    }
+    else
+    {
+      this.isChecked = false;
+    }
+
+    if ( this.isChecked )
+    {
+      this.listar();
+    }
+
+
     this.generoService.listar().subscribe(generos => {
       this.generosLista = generos;
     });
+
+    this.avaliacaoItens.push('Ruim');
+    this.avaliacaoItens.push('Ok');
+    this.avaliacaoItens.push('Legal');
+
+    this.statusItens.push('Quero');
+    this.statusItens.push('Tenho');
+    this.statusItens.push('Zerado');
   }
 
   listar(): void
@@ -74,30 +101,21 @@ export class JogosComponent implements OnInit
   {
     this.inserindo = false;
     this.jogoSelecionado = jogo;
-
-    this.avaliacaoSelecionado = this.jogoSelecionado.avaliacao;
-    this.statusSelecionado = this.jogoSelecionado.status;
   }
 
   cancelar(): void
   {
     this.jogoSelecionado = null;
-    this.avaliacaoSelecionado = 'ok';
-    this.statusSelecionado = 'quero';
   }
 
   salvar(): void
   {
-
     if ( !this.jogoSelecionado.nome || !this.jogoSelecionado.genero || !this.jogoSelecionado.avaliacao || !this.jogoSelecionado.status )
     {
-      alert('Preencha os campos obrigatórios!');
+      alert('Preencha todos os campos obrigatórios!');
     }
     else
     {
-      this.jogoSelecionado.avaliacao = this.avaliacaoSelecionado;
-      this.jogoSelecionado.status = this.statusSelecionado;
-
       if( this.inserindo )
       {
         this.jogoService.inserir( this.jogoSelecionado ).subscribe( () => {
@@ -113,8 +131,6 @@ export class JogosComponent implements OnInit
         });
       }
       this.jogoSelecionado = null;
-      this.avaliacaoSelecionado = 'ok';
-      this.statusSelecionado = 'quero';
     }
 
   }
@@ -125,6 +141,39 @@ export class JogosComponent implements OnInit
     this.jogoSelecionado = new Jogo();
 
     setTimeout( () => { this.inputEl.nativeElement.focus();  }, 100 );
+  }
+
+  retornarIcone(generoNome: string): string
+  {
+    let retornoIcone = "";
+    for (let i = 0; i < this.generosLista.length; i++)
+    {
+      let generoatual = this.generosLista[i];
+
+      if ( generoatual.nome === generoNome )
+      {
+        retornoIcone = generoatual.icone;
+        break;
+      }
+    }
+    return retornoIcone;
+  }
+
+
+  saveOption(): void
+  {
+    let carregar = localStorage.getItem('carregarJogos');
+
+    if ( !this.isChecked )
+    {
+      carregar = 'sim';
+    }
+    else
+    {
+      carregar = 'nao';
+    }
+
+    localStorage.setItem('carregarJogos', carregar );
   }
 
 }

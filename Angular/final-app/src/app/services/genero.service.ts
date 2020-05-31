@@ -12,12 +12,12 @@ export class GeneroService
 
     listar(): Observable<Genero[]>
     {
-      return this.http.get<Genero[]>('https://crudcrud.com/api/18e95a60bbbf462da6a1be44ac83832a/genero');
+      return this.http.get<Genero[]>('https://crudcrud.com/api/e31a2dda4d9f47f38a9a7a2a6ca2abda/genero');
     }
 
     inserir(genero: Genero): Observable<Genero>
     {
-      return this.http.post<Genero>('https://crudcrud.com/api/18e95a60bbbf462da6a1be44ac83832a/genero', genero);
+      return this.http.post<Genero>('https://crudcrud.com/api/e31a2dda4d9f47f38a9a7a2a6ca2abda/genero', genero);
     }
 
     atualizar(genero: Genero): Observable<any>
@@ -25,11 +25,11 @@ export class GeneroService
       const id = genero._id;
       delete genero._id;
 
-      return this.http.put<Genero>('https://crudcrud.com/api/18e95a60bbbf462da6a1be44ac83832a/genero/' + id , genero);
+      return this.http.put<Genero>('https://crudcrud.com/api/e31a2dda4d9f47f38a9a7a2a6ca2abda/genero/' + id , genero);
     }
 
     remover(id: string): Observable<any>
     {
-      return this.http.delete('https://crudcrud.com/api/18e95a60bbbf462da6a1be44ac83832a/genero/' + id);
+      return this.http.delete('https://crudcrud.com/api/e31a2dda4d9f47f38a9a7a2a6ca2abda/genero/' + id);
     }
 }
