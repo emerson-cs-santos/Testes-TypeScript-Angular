@@ -27,12 +27,15 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { SobreComponent } from './views/sobre/sobre.component';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
     AppComponent,
     JogosComponent,
-    GeneroComponent
+    GeneroComponent,
+    SobreComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +57,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatSortModule,
     MatPaginatorModule,
     MatTooltipModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
